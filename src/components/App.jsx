@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import { Card, CardHeader, Heading } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
+import Header from "./Header";
 
 export default class App extends Component {
   render() {
     return (
-      <Card>
-        <CardHeader>
-          <Heading>Test!</Heading>
-        </CardHeader>
-      </Card>
+      <Flex h="100vh" direction="column">
+        <Header />
+        {/* <ResumeForm /> */}
+        {/* <ResumePreview /> */}
+      </Flex>
     );
   }
 }
