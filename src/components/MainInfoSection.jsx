@@ -1,4 +1,11 @@
-import { FormControl, Heading, Input, Textarea, Flex } from "@chakra-ui/react";
+import {
+  FormControl,
+  Heading,
+  Input,
+  Textarea,
+  Flex,
+  FormHelperText,
+} from "@chakra-ui/react";
 import React, { Component } from "react";
 
 export class MainInfoSection extends Component {
@@ -17,13 +24,13 @@ export class MainInfoSection extends Component {
         >
           Profile
         </Heading>
-        <FormControl
-          display="flex"
+        <Flex
           gap={3}
           alignItems="center"
           flexWrap="wrap"
           justifyContent="center"
-          flexDir="column"
+          direction="column"
+          w="100%"
         >
           <Flex w="100%" gap={4}>
             <Input
@@ -90,7 +97,7 @@ export class MainInfoSection extends Component {
             h={150}
             focusBorderColor="purple.400"
           ></Textarea>
-        </FormControl>
+        </Flex>
       </>
     );
   }
