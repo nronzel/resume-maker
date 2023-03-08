@@ -22,7 +22,12 @@ export class MainSection extends Component {
 
   handleInputChange = (e) => {
     const { name, value } = e.target;
-    this.setState({ profile: { [name]: value } });
+    this.setState((prevState) => ({
+      profile: {
+        ...prevState.profile,
+        [name]: value,
+      },
+    }));
   };
 
   render() {
