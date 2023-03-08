@@ -11,11 +11,7 @@ function ThemeSwitcher() {
       bgColor="transparent"
       p="2px 4px"
     >
-      {colorMode === "dark" ? (
-        <SunIcon color="yellow.500" fontSize="2xl" />
-      ) : (
-        <MoonIcon color="blue.700" fontSize="2xl" />
-      )}
+      {colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
     </Button>
   );
 }
