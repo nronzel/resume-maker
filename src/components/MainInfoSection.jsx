@@ -33,6 +33,7 @@ export class MainInfoSection extends Component {
               variant="flushed"
               onChange={this.props.handleChange}
               name="firstName"
+              focusBorderColor="purple.400"
             ></Input>
             <Input
               defaultValue="Vandelay"
@@ -41,6 +42,7 @@ export class MainInfoSection extends Component {
               variant="flushed"
               onChange={this.props.handleChange}
               name="lastName"
+              focusBorderColor="purple.400"
             ></Input>
           </Flex>
           <Input
@@ -50,6 +52,7 @@ export class MainInfoSection extends Component {
             variant="flushed"
             name="email"
             onChange={this.props.handleChange}
+            focusBorderColor="purple.400"
           ></Input>
           <Input
             defaultValue="555-555-5555"
@@ -58,6 +61,7 @@ export class MainInfoSection extends Component {
             variant="flushed"
             name="phone"
             onChange={this.props.handleChange}
+            focusBorderColor="purple.400"
           ></Input>
           <Input
             defaultValue="https://vandelayindustries.com"
@@ -66,6 +70,7 @@ export class MainInfoSection extends Component {
             variant="flushed"
             name="link"
             onChange={this.props.handleChange}
+            focusBorderColor="purple.400"
           ></Input>
           <Input
             defaultValue="Import/Exporter"
@@ -74,6 +79,7 @@ export class MainInfoSection extends Component {
             variant="flushed"
             name="title"
             onChange={this.props.handleChange}
+            focusBorderColor="purple.400"
           ></Input>
           <Textarea
             placeholder="Objective statement"
@@ -82,6 +88,7 @@ export class MainInfoSection extends Component {
             size="sm"
             onChange={this.props.handleChange}
             h={150}
+            focusBorderColor="purple.400"
           ></Textarea>
         </FormControl>
       </>
