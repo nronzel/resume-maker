@@ -1,7 +1,11 @@
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import React, { Component } from "react";
+import MainInfoSection from "./MainInfoSection";
 
 export class ResumeForm extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <Flex
@@ -10,10 +14,13 @@ export class ResumeForm extends Component {
         borderColor="gray.700"
         p={5}
         borderRadius={5}
-        w="80%"
+        w="595px"
         alignItems="center"
       >
-        <Heading size="lg">Build Your Resume</Heading>
+        <MainInfoSection handleChange={this.props.handleChange} />
+        {/* <EducationSection /> */}
+        {/* <WorkExperience /> */}
+        {/* <Projects /> */}
       </Flex>
     );
   }
