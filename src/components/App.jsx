@@ -7,7 +7,7 @@ import Footer from "./Footer";
 export default class App extends Component {
   render() {
     return (
-      <Flex h="100vh" direction="column" gap={5}>
+      <Flex h="100dvh" direction="column" gap={5}>
         <Header />
         <MainSection />
         <Footer />
