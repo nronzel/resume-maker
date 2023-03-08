@@ -8,29 +8,32 @@ export class MainSection extends Component {
     super(props);
     this.state = {
       profile: {
-        name: "Art Vandelay",
+        firstName: "Art",
+        lastName: "Vandelay",
         email: "avandalay@vandelayindustries.com",
         phone: "555-555-5555",
         link: "https://vandelayindustries.com",
         title: "Import/Exporter",
         description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, ipsa!",
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda maxime facilis ipsam corrupti sed quam unde architecto eum exercitationem debitis cum, temporibus vitae quia labore ad, obcaecati cupiditate a officiis eos nemo aliquid aliquam doloremque ea. Sit error nihil eum adipisci quam eos perspiciatis, ipsam, aliquam sapiente illum omnis dolore.",
       },
     };
   }
 
   handleInputChange = (e) => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    this.setState({ profile: { [name]: value } });
   };
 
   render() {
-    const { name, email, phone, link, title, description } = this.state.profile;
+    const { firstName, lastName, email, phone, link, title, description } =
+      this.state.profile;
     return (
       <Flex justifyContent="center" gap={5}>
         <ResumeForm handleChange={this.handleInputChange} />
         <ResumePreview
-          name={name}
+          firstName={firstName}
+          lastName={lastName}
           email={email}
           phone={phone}
           link={link}

@@ -20,7 +20,8 @@ export class ResumePreview extends Component {
         alignItems="center"
       >
         <ProfileSectionPreview
-          name={this.props.name}
+          firstName={this.props.firstName}
+          lastName={this.props.lastName}
           email={this.props.email}
           phone={this.props.phone}
           link={this.props.link}
