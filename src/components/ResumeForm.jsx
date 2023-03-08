@@ -1,6 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import React, { Component } from "react";
 import MainInfoSection from "./MainInfoSection";
+import WorkExperience from "./WorkExperience";
 
 export class ResumeForm extends Component {
   constructor(props) {
@@ -16,10 +17,11 @@ export class ResumeForm extends Component {
         borderRadius={5}
         w="595px"
         alignItems="center"
+        gap={4}
       >
         <MainInfoSection handleChange={this.props.handleChange} />
-        {/* <EducationSection /> */}
-        {/* <WorkExperience /> */}
+        <WorkExperience />
+        {/* <Education /> */}
         {/* <Projects /> */}
       </Flex>
     );

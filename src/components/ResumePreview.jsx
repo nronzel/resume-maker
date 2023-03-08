@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ProfileSectionPreview from "./ProfileSectionPreview";
 import { Flex } from "@chakra-ui/react";
-
 export class ResumePreview extends Component {
   constructor(props) {
     super(props);
