@@ -7,13 +7,15 @@ export class MainSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "Art Vandelay",
-      email: "avandalay@vandelayindustries.com",
-      phone: "555-555-5555",
-      link: "https://vandelayindustries.com",
-      title: "Import/Exporter",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, ipsa!",
+      profile: {
+        name: "Art Vandelay",
+        email: "avandalay@vandelayindustries.com",
+        phone: "555-555-5555",
+        link: "https://vandelayindustries.com",
+        title: "Import/Exporter",
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, ipsa!",
+      },
     };
   }
 
@@ -23,7 +25,7 @@ export class MainSection extends Component {
   };
 
   render() {
-    const { name, email, phone, link, title, description } = this.state;
+    const { name, email, phone, link, title, description } = this.state.profile;
     return (
       <Flex justifyContent="center" gap={5}>
         <ResumeForm handleChange={this.handleInputChange} />
