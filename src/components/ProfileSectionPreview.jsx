@@ -16,7 +16,7 @@ export class ProfileSectionPreview extends Component {
         borderColor="blue.700"
       >
         <Box>
-          <Heading size="xl" fontWeight="thin">
+          <Heading size="xl" fontWeight="400">
             {this.props.name.split(" ")[0]}
           </Heading>
           <Heading size="2xl" color="blue.700">
