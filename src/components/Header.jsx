@@ -5,7 +5,7 @@ import ThemeSwitcher from "./ThemeSwitcher";
 export class Header extends Component {
   render() {
     return (
-      <Flex bg="cyan.800" p="6px 12px" alignItems="center">
+      <Flex bg="purple.600" p="6px 12px" alignItems="center">
         <Heading fontWeight="extrabold">ResumeBuildr</Heading>
         <Spacer />
         <ThemeSwitcher />
