@@ -81,6 +81,7 @@ export class MainInfoSection extends Component {
             name="description"
             size="sm"
             onChange={this.props.handleChange}
+            h={150}
           ></Textarea>
         </FormControl>
       </>
