@@ -19,6 +19,7 @@ export class MainSection extends Component {
       },
       workExperience: [
         {
+          id: 0,
           companyName: "Vandelay Industries",
           start: "Jan 2000",
           end: "Present",
@@ -41,9 +42,6 @@ export class MainSection extends Component {
   };
 
   render() {
-    const { firstName, lastName, email, phone, link, title, description } =
-      this.state.profile;
-
     return (
       <Flex justifyContent="center" gap={5}>
         <ResumeForm
@@ -51,13 +49,7 @@ export class MainSection extends Component {
           addExperience={this.handleAddExperience}
         />
         <ResumePreview
-          firstName={firstName}
-          lastName={lastName}
-          email={email}
-          phone={phone}
-          link={link}
-          title={title}
-          description={description}
+          profile={this.state.profile}
           workExperience={this.state.workExperience}
         />
       </Flex>
