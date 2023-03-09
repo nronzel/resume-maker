@@ -59,7 +59,7 @@ export class WorkExperience extends Component {
             onChange={(e) => handleChange(e, id)}
             name="jobDescription"
             focusBorderColor="purple.400"
-            placeholder="job description"
+            placeholder="job description / duties"
           ></Textarea>
         </Flex>
       </Box>
