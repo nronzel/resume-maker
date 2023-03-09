@@ -95,7 +95,7 @@ export class MainInfoSection extends Component {
             placeholder="title"
           ></Input>
           <Textarea
-            placeholder="objective statement"
+            placeholder="summary"
             defaultValue=""
             name="description"
             size="sm"
