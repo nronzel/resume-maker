@@ -9,7 +9,7 @@ class ExperiencePreview extends Component {
     const { id, companyName, start, end, jobDescription, jobTitle } =
       this.props.experience;
     return (
-      <Flex w="100%" direction="column" key={id} id={id}>
+      <Flex w="100%" direction="column" key={id} id={id} mb={3}>
         <Box>
           <Flex w="100%" mb={3} alignItems="center">
             <Text fontSize="lg" fontWeight="semibold" color="blue.700">
