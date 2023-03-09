@@ -6,6 +6,8 @@ export class ProfileSectionPreview extends Component {
     super(props);
   }
   render() {
+    const { firstName, lastName, email, phone, link, title, description } =
+      this.props.profile;
     return (
       <Box p="0" m="0" w="100%">
         <Flex
@@ -18,13 +20,13 @@ export class ProfileSectionPreview extends Component {
         >
           <Box>
             <Heading size="xl" fontWeight="400">
-              {this.props.firstName}
+              {firstName}
             </Heading>
             <Heading size="2xl" color="blue.700">
-              {this.props.lastName}
+              {lastName}
             </Heading>
             <Text fontSize="xl" as="i" fontWeight="thin">
-              {this.props.title}
+              {title}
             </Text>
           </Box>
           <Spacer />
@@ -35,7 +37,7 @@ export class ProfileSectionPreview extends Component {
               color="gray.600"
               fontWeight="thin"
             >
-              {this.props.email}
+              {email}
             </Text>
             <Text
               w="100%"
@@ -43,7 +45,7 @@ export class ProfileSectionPreview extends Component {
               color="gray.600"
               fontWeight="thin"
             >
-              {this.props.phone}
+              {phone}
             </Text>
             <Text
               w="100%"
@@ -51,12 +53,12 @@ export class ProfileSectionPreview extends Component {
               color="gray.600"
               fontWeight="thin"
             >
-              {this.props.link}
+              {link}
             </Text>
           </VStack>
         </Flex>
         <Text fontSize="sm" pt={3}>
-          {this.props.description}
+          {description}
         </Text>
       </Box>
     );
