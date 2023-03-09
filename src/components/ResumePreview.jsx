@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProfileSectionPreview from "./ProfileSectionPreview";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
+import ExperiencePreview from "./ExperiencePreview";
 export class ResumePreview extends Component {
   constructor(props) {
     super(props);
@@ -17,16 +18,15 @@ export class ResumePreview extends Component {
         bgColor="white"
         color="black"
         alignItems="center"
+        height="fit-content"
       >
-        <ProfileSectionPreview
-          firstName={this.props.firstName}
-          lastName={this.props.lastName}
-          email={this.props.email}
-          phone={this.props.phone}
-          link={this.props.link}
-          title={this.props.title}
-          description={this.props.description}
-        />
+        <ProfileSectionPreview profile={this.props.profile} />
+        <Flex w="100%" pt={3} borderBottom="2px solid" borderColor="blue.700">
+          <Heading size="lg" color="blue.700">
+            Experience
+          </Heading>
+        </Flex>
+        <ExperiencePreview experience={this.props.workExperience} />
       </Flex>
     );
   }
