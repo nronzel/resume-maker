@@ -34,63 +34,69 @@ export class MainInfoSection extends Component {
         >
           <Flex w="100%" gap={4}>
             <Input
-              defaultValue="Art"
+              defaultValue=""
               borderBottom="1px solid"
               p="3px"
               variant="flushed"
               onChange={this.props.handleChange}
               name="firstName"
               focusBorderColor="purple.400"
+              placeholder="first name"
             ></Input>
             <Input
-              defaultValue="Vandelay"
+              defaultValue=""
               borderBottom="1px solid"
               p="3px"
               variant="flushed"
               onChange={this.props.handleChange}
               name="lastName"
               focusBorderColor="purple.400"
+              placeholder="last name"
             ></Input>
           </Flex>
           <Input
-            defaultValue="avandalay@vandelayindustries.com"
+            defaultValue=""
             borderBottom="1px solid"
             p="3px"
             variant="flushed"
             name="email"
             onChange={this.props.handleChange}
             focusBorderColor="purple.400"
+            placeholder="email@email.com"
           ></Input>
           <Input
-            defaultValue="555-555-5555"
+            defaultValue=""
             borderBottom="1px solid"
             p="3px"
             variant="flushed"
             name="phone"
             onChange={this.props.handleChange}
             focusBorderColor="purple.400"
+            placeholder="555-555-5555"
           ></Input>
           <Input
-            defaultValue="https://vandelayindustries.com"
+            defaultValue=""
             borderBottom="1px solid"
             p="3px"
             variant="flushed"
             name="link"
             onChange={this.props.handleChange}
             focusBorderColor="purple.400"
+            placeholder="https://github.com/"
           ></Input>
           <Input
-            defaultValue="Import/Exporter"
+            defaultValue=""
             borderBottom="1px solid"
             p="3px"
             variant="flushed"
             name="title"
             onChange={this.props.handleChange}
             focusBorderColor="purple.400"
+            placeholder="title"
           ></Input>
           <Textarea
-            placeholder="Objective statement"
-            defaultValue="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda maxime facilis ipsam corrupti sed quam unde architecto eum exercitationem debitis cum, temporibus vitae quia labore ad, obcaecati cupiditate a officiis eos nemo aliquid aliquam doloremque ea. Sit error nihil eum adipisci quam eos perspiciatis, ipsam, aliquam sapiente illum omnis dolore."
+            placeholder="objective statement"
+            defaultValue=""
             name="description"
             size="sm"
             onChange={this.props.handleChange}
