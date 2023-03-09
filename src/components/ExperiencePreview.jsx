@@ -1,4 +1,4 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Divider, Flex, HStack, Spacer, Text } from "@chakra-ui/react";
 import React, { Component } from "react";
 
 class ExperiencePreview extends Component {
@@ -7,10 +7,32 @@ class ExperiencePreview extends Component {
   }
   render() {
     return (
-      <Flex w="100%" pt={3}>
+      <Flex w="100%" direction="column">
         {this.props.experience.map((job) => {
           const { id, companyName, start, end, jobDescription, jobTitle } = job;
-          return <Text key={id}></Text>;
+          return (
+            <>
+              <Flex w="100%" mb={3}>
+                <Text
+                  key={id}
+                  fontSize="lg"
+                  fontWeight="semibold"
+                  color="blue.700"
+                >
+                  {jobTitle}
+                </Text>
+                <Spacer />
+                <HStack h="25px">
+                  <Text>{companyName}</Text>
+                  <Divider orientation="vertical" />
+                  <Text as="i" fontWeight="thin">
+                    {start} - {end}
+                  </Text>
+                </HStack>
+              </Flex>
+              <Text fontSize="sm">{jobDescription}</Text>
+            </>
+          );
         })}
       </Flex>
     );
