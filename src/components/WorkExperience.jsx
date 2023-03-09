@@ -1,94 +1,68 @@
 import React, { Component } from "react";
-import { HStack, Button, Flex, Input, Textarea } from "@chakra-ui/react";
-import { AddIcon, DeleteIcon } from "@chakra-ui/icons";
+import { Flex, Input, Textarea, Box } from "@chakra-ui/react";
 
 export class WorkExperience extends Component {
   constructor(props) {
     super(props);
   }
 
-  handleInputChange = (e) => {
-    const { name, value } = e.target;
-    this.props.handleChange(name, value);
-  };
-
   render() {
+    const { handleChange, id } = this.props;
     return (
-      <>
+      <Box mb={4}>
         <Flex w="100%" gap={4} direction="column">
           <Flex gap={3}>
             <Input
-              defaultValue="Vandelay Industries"
+              defaultValue=""
               borderBottom="1px solid"
               p="3px"
               variant="flushed"
-              onChange={this.handleInputChange}
+              onChange={(e) => handleChange(e, id)}
               name="companyName"
               focusBorderColor="purple.400"
               placeholder="company name"
             ></Input>
             <Input
-              defaultValue="Jan. 2000"
+              defaultValue=""
               borderBottom="1px solid"
               p="3px"
               variant="flushed"
-              onChange={this.handleInputChange}
+              onChange={(e) => handleChange(e, id)}
               name="start"
               focusBorderColor="purple.400"
               placeholder="start date"
             ></Input>
             <Input
-              defaultValue="Present"
+              defaultValue=""
               borderBottom="1px solid"
               p="3px"
               variant="flushed"
-              onChange={this.handleInputChange}
+              onChange={(e) => handleChange(e, id)}
               name="end"
               focusBorderColor="purple.400"
               placeholder="end date"
             ></Input>
           </Flex>
           <Input
-            defaultValue="Import/Exporter"
+            defaultValue=""
             borderBottom="1px solid"
             p="3px"
             variant="flushed"
-            onChange={this.handleInputChange}
+            onChange={(e) => handleChange(e, id)}
             name="jobTitle"
             focusBorderColor="purple.400"
             placeholder="job title"
           ></Input>
           <Textarea
-            defaultValue="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod assumenda illo alias mollitia necessitatibus enim!"
+            defaultValue=""
             size="sm"
-            onChange={this.handleInputChange}
+            onChange={(e) => handleChange(e, id)}
             name="jobDescription"
             focusBorderColor="purple.400"
             placeholder="job description"
           ></Textarea>
         </Flex>
-        {/* <HStack>
-          {isLast && (
-            <Button
-              colorScheme="purple"
-              size="sm"
-              onClick={this.props.addExperience}
-            >
-              <AddIcon />
-            </Button>
-          )}
-          {this.state.showDeleteButton && (
-            <Button
-              colorScheme="purple"
-              size="sm"
-              variant="ghost"
-              onClick={this.props.removeExperience}
-            >
-              <DeleteIcon />
-            </Button>
-          )}
-        </HStack> */}
-      </>
+      </Box>
     );
   }
 }
