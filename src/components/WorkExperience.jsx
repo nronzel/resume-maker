@@ -1,22 +1,10 @@
 import React, { Component } from "react";
-import {
-  HStack,
-  Button,
-  Flex,
-  Heading,
-  Input,
-  Textarea,
-  IconButton,
-} from "@chakra-ui/react";
+import { HStack, Button, Flex, Input, Textarea } from "@chakra-ui/react";
 import { AddIcon, DeleteIcon } from "@chakra-ui/icons";
 
 export class WorkExperience extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      showDeleteButton: false,
-    };
   }
 
   handleInputChange = (e) => {
@@ -24,39 +12,7 @@ export class WorkExperience extends Component {
     this.props.handleChange(name, value);
   };
 
-  handleAddExperience = () => {
-    this.props.addExperience();
-  };
-
-  handleRemoveExperience = () => {
-    this.props.removeExperience();
-  };
-
-  componentDidMount() {
-    const isLast = this.props.isLast;
-    const shouldShowRemoveButton = isLast && this.props.numWorkExperiences >= 2;
-    this.setState({
-      showDeleteButton: shouldShowRemoveButton,
-    });
-  }
-
-  componentDidUpdate(prevProps) {
-    if (
-      prevProps.isLast !== this.props.isLast ||
-      prevProps.numWorkExperiences !== this.props.numWorkExperiences
-    ) {
-      const isLast = this.props.isLast;
-      const shouldShowRemoveButton =
-        isLast && this.props.numWorkExperiences >= 2;
-      this.setState({
-        showDeleteButton: shouldShowRemoveButton,
-      });
-    }
-  }
-
   render() {
-    const isLast = this.props.isLast;
-
     return (
       <>
         <Flex w="100%" gap={4} direction="column">
@@ -111,7 +67,7 @@ export class WorkExperience extends Component {
             placeholder="job description"
           ></Textarea>
         </Flex>
-        <HStack>
+        {/* <HStack>
           {isLast && (
             <Button
               colorScheme="purple"
@@ -131,7 +87,7 @@ export class WorkExperience extends Component {
               <DeleteIcon />
             </Button>
           )}
-        </HStack>
+        </HStack> */}
       </>
     );
   }
