@@ -1,14 +1,31 @@
-import { Flex, Heading } from "@chakra-ui/react";
+import { AddIcon } from "@chakra-ui/icons";
+import { Flex, Heading, Button } from "@chakra-ui/react";
 import React, { Component } from "react";
 import MainInfoSection from "./MainInfoSection";
 import WorkExperience from "./WorkExperience";
 
-export class ResumeForm extends Component {
+class ResumeForm extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+    const {
+      handleChange,
+      handleWorkXpChange,
+      handleAddWorkXp,
+      workExperienceCount,
+    } = this.props;
+    const workExperiences = [];
+    for (let i = 0; i < workExperienceCount; i++) {
+      workExperiences.push(
+        <WorkExperience
+          key={i}
+          id={i}
+          handleChange={(e) => handleWorkXpChange(e, i)}
+        />
+      );
+    }
     return (
       <Flex
         direction="column"
@@ -20,7 +37,7 @@ export class ResumeForm extends Component {
         alignItems="center"
         gap={4}
       >
-        <MainInfoSection handleChange={this.props.handleChange} />
+        <MainInfoSection handleChange={handleChange} />
         <Heading
           color="gray.500"
           fontWeight="hairline"
@@ -32,7 +49,14 @@ export class ResumeForm extends Component {
         >
           Work Experience
         </Heading>
-        {<WorkExperience />}
+
+        {/* <WorkExperience handleChange={handleWorkXpChange} /> */}
+        {workExperiences}
+
+        <Button colorScheme="purple" size="sm" onClick={handleAddWorkXp}>
+          <AddIcon />
+        </Button>
+
         {/* <Education /> */}
         {/* <Projects /> */}
       </Flex>

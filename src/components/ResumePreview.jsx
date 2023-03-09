@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import ProfileSectionPreview from "./ProfileSectionPreview";
 import { Flex, Heading } from "@chakra-ui/react";
 import ExperiencePreview from "./ExperiencePreview";
-export class ResumePreview extends Component {
+class ResumePreview extends Component {
   constructor(props) {
     super(props);
   }
   render() {
+    const { profile, workExperience } = this.props;
     return (
       <Flex
         direction="column"
@@ -20,13 +21,15 @@ export class ResumePreview extends Component {
         alignItems="center"
         height="fit-content"
       >
-        <ProfileSectionPreview profile={this.props.profile} />
+        <ProfileSectionPreview profile={profile} />
         <Flex w="100%" pt={3} borderBottom="2px solid" borderColor="blue.700">
           <Heading size="md" fontWeight="medium">
             EXPERIENCE
           </Heading>
         </Flex>
-        <ExperiencePreview experience={this.props.workExperience} />
+        {workExperience.map((exp) => (
+          <ExperiencePreview experience={exp} key={exp.id} id={exp.id} />
+        ))}
       </Flex>
     );
   }
