@@ -1,4 +1,4 @@
-import { AddIcon } from "@chakra-ui/icons";
+import { AddIcon, DeleteIcon } from "@chakra-ui/icons";
 import { Flex, Heading, Button } from "@chakra-ui/react";
 import React, { Component } from "react";
 import MainInfoSection from "./MainInfoSection";
@@ -15,17 +15,9 @@ class ResumeForm extends Component {
       handleWorkXpChange,
       handleAddWorkXp,
       workExperienceCount,
+      experience,
     } = this.props;
-    const workExperiences = [];
-    for (let i = 0; i < workExperienceCount; i++) {
-      workExperiences.push(
-        <WorkExperience
-          key={i}
-          id={i}
-          handleChange={(e) => handleWorkXpChange(e, i)}
-        />
-      );
-    }
+
     return (
       <Flex
         direction="column"
@@ -50,13 +42,23 @@ class ResumeForm extends Component {
           Work Experience
         </Heading>
 
-        {/* <WorkExperience handleChange={handleWorkXpChange} /> */}
-        {workExperiences}
+        {experience.map((experience) => (
+          <WorkExperience
+            key={experience.id}
+            id={experience.id}
+            handleChange={handleWorkXpChange}
+          />
+        ))}
 
         <Button colorScheme="purple" size="sm" onClick={handleAddWorkXp}>
           <AddIcon />
         </Button>
 
+        {workExperienceCount > 1 && (
+          <Button colorScheme="purple" variant="ghost">
+            <DeleteIcon />
+          </Button>
+        )}
         {/* <Education /> */}
         {/* <Projects /> */}
       </Flex>
