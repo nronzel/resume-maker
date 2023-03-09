@@ -19,10 +19,10 @@ export class ProfileSectionPreview extends Component {
           borderColor="blue.700"
         >
           <Box>
-            <Heading size="xl" fontWeight="400">
+            <Heading size="lg" fontWeight="400">
               {firstName}
             </Heading>
-            <Heading size="2xl" color="blue.700">
+            <Heading size="xl" color="blue.700">
               {lastName}
             </Heading>
             <Text fontSize="xl" as="i" fontWeight="thin">
