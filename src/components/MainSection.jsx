@@ -17,10 +17,20 @@ export class MainSection extends Component {
         description:
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda maxime facilis ipsam corrupti sed quam unde architecto eum exercitationem debitis cum, temporibus vitae quia labore ad, obcaecati cupiditate a officiis eos nemo aliquid aliquam doloremque ea. Sit error nihil eum adipisci quam eos perspiciatis, ipsam, aliquam sapiente illum omnis dolore.",
       },
+      workExperience: [
+        {
+          companyName: "Vandelay Industries",
+          start: "Jan 2000",
+          end: "Present",
+          jobTitle: "Import/Exporter",
+          jobDescription:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste porro dolorem quis. Corrupti, minima accusantium",
+        },
+      ],
     };
   }
 
-  handleInputChange = (e) => {
+  handleProfileInputChange = (e) => {
     const { name, value } = e.target;
     this.setState((prevState) => ({
       profile: {
@@ -33,9 +43,13 @@ export class MainSection extends Component {
   render() {
     const { firstName, lastName, email, phone, link, title, description } =
       this.state.profile;
+
     return (
       <Flex justifyContent="center" gap={5}>
-        <ResumeForm handleChange={this.handleInputChange} />
+        <ResumeForm
+          handleChange={this.handleProfileInputChange}
+          addExperience={this.handleAddExperience}
+        />
         <ResumePreview
           firstName={firstName}
           lastName={lastName}
@@ -44,6 +58,7 @@ export class MainSection extends Component {
           link={link}
           title={title}
           description={description}
+          workExperience={this.state.workExperience}
         />
       </Flex>
     );
