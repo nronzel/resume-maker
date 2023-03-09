@@ -22,8 +22,8 @@ export class ResumePreview extends Component {
       >
         <ProfileSectionPreview profile={this.props.profile} />
         <Flex w="100%" pt={3} borderBottom="2px solid" borderColor="blue.700">
-          <Heading size="lg" color="blue.700">
-            Experience
+          <Heading size="md" fontWeight="medium">
+            EXPERIENCE
           </Heading>
         </Flex>
         <ExperiencePreview experience={this.props.workExperience} />
