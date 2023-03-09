@@ -12,7 +12,7 @@ class ExperiencePreview extends Component {
           const { id, companyName, start, end, jobDescription, jobTitle } = job;
           return (
             <>
-              <Flex w="100%" mb={3}>
+              <Flex w="100%" mb={3} alignItems="center">
                 <Text
                   key={id}
                   fontSize="lg"
@@ -22,9 +22,9 @@ class ExperiencePreview extends Component {
                   {jobTitle}
                 </Text>
                 <Spacer />
-                <HStack h="25px">
-                  <Text>{companyName}</Text>
-                  <Divider orientation="vertical" />
+                <HStack>
+                  <Text color="gray.500">{companyName}</Text>
+                  <Text fontWeight="thin">|</Text>
                   <Text as="i" fontWeight="thin">
                     {start} - {end}
                   </Text>
