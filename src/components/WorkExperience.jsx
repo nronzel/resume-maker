@@ -9,9 +9,9 @@ export class WorkExperience extends Component {
   render() {
     const { handleChange, id } = this.props;
     return (
-      <Box mb={4} w="100%">
+      <Box mb={10} mt={4} w="100%">
         <Flex w="100%" gap={4} direction="column">
-          <Tag size="md" variant="subtle" colorScheme="purple">
+          <Tag size="md" variant="subtle" colorScheme="purple" mb={-4} w={45}>
             {`# ${id + 1}`}
           </Tag>
           <Input
