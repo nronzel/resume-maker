@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Flex, Input, Textarea, Box } from "@chakra-ui/react";
+import { Tag, Flex, Input, Textarea, Box } from "@chakra-ui/react";
 
 export class WorkExperience extends Component {
   constructor(props) {
@@ -9,19 +9,23 @@ export class WorkExperience extends Component {
   render() {
     const { handleChange, id } = this.props;
     return (
-      <Box mb={4}>
+      <Box mb={4} w="100%">
         <Flex w="100%" gap={4} direction="column">
+          <Tag size="md" variant="subtle" colorScheme="purple">
+            {`# ${id + 1}`}
+          </Tag>
+          <Input
+            defaultValue=""
+            borderBottom="1px solid"
+            p="3px"
+            variant="flushed"
+            onChange={(e) => handleChange(e, id)}
+            name="companyName"
+            focusBorderColor="purple.400"
+            placeholder="company name"
+          ></Input>
+
           <Flex gap={3}>
-            <Input
-              defaultValue=""
-              borderBottom="1px solid"
-              p="3px"
-              variant="flushed"
-              onChange={(e) => handleChange(e, id)}
-              name="companyName"
-              focusBorderColor="purple.400"
-              placeholder="company name"
-            ></Input>
             <Input
               defaultValue=""
               borderBottom="1px solid"

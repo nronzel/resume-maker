@@ -1,5 +1,5 @@
 import { AddIcon, DeleteIcon } from "@chakra-ui/icons";
-import { Flex, Heading, Button, HStack } from "@chakra-ui/react";
+import { Flex, Heading, Button, HStack, Divider, Tag } from "@chakra-ui/react";
 import React, { Component } from "react";
 import MainInfoSection from "./MainInfoSection";
 import WorkExperience from "./WorkExperience";
@@ -31,6 +31,7 @@ class ResumeForm extends Component {
         gap={4}
       >
         <MainInfoSection handleChange={handleChange} />
+
         <Heading
           color="gray.500"
           fontWeight="hairline"
