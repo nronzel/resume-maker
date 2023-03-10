@@ -71,7 +71,10 @@ class MainSection extends Component {
   handleRemoveWorkExperience = () => {
     const workExperience = [...this.state.workExperience];
     workExperience.pop();
-    this.setState({ workExperience });
+    this.setState((prevState) => ({
+      workExperienceCount: prevState.workExperienceCount - 1,
+      workExperience,
+    }));
   };
 
   render() {
