@@ -1,4 +1,4 @@
-import { Divider, Heading, Input, Textarea, Flex } from "@chakra-ui/react";
+import { Input, Textarea, Flex, Box } from "@chakra-ui/react";
 import React, { Component } from "react";
 
 export class MainInfoSection extends Component {
@@ -7,7 +7,7 @@ export class MainInfoSection extends Component {
   }
   render() {
     return (
-      <>
+      <Box mt={3}>
         <Flex
           gap={3}
           alignItems="center"
@@ -88,7 +88,7 @@ export class MainInfoSection extends Component {
             focusBorderColor="purple.400"
           ></Textarea>
         </Flex>
-      </>
+      </Box>
     );
   }
 }
