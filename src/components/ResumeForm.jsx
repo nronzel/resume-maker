@@ -1,5 +1,16 @@
 import { AddIcon, DeleteIcon } from "@chakra-ui/icons";
-import { Flex, Heading, Button, HStack, Divider, Tag } from "@chakra-ui/react";
+import {
+  Flex,
+  Heading,
+  Button,
+  HStack,
+  Divider,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+} from "@chakra-ui/react";
 import React, { Component } from "react";
 import MainInfoSection from "./MainInfoSection";
 import WorkExperience from "./WorkExperience";
@@ -30,58 +41,52 @@ class ResumeForm extends Component {
         alignItems="center"
         gap={4}
       >
-        <MainInfoSection handleChange={handleChange} />
+        <Tabs variant="enclosed" colorScheme="purple" isLazy>
+          <TabList>
+            <Tab>Profile</Tab>
+            <Tab>Experience</Tab>
+            <Tab>Education</Tab>
+            <Tab>Skills</Tab>
+            <Tab>Projects</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <MainInfoSection handleChange={handleChange} />
+            </TabPanel>
+            <TabPanel>
+              {experience.map((experience) => (
+                <WorkExperience
+                  key={experience.id}
+                  id={experience.id}
+                  handleChange={handleWorkXpChange}
+                />
+              ))}
 
-        <Heading
-          color="gray.500"
-          fontWeight="hairline"
-          size="lg"
-          textDecoration="underline"
-          textDecorationThickness="1px"
-          textAlign="center"
-          mb={3}
-        >
-          Work Experience
-        </Heading>
-        <Divider mt={-4} />
-        {experience.map((experience) => (
-          <WorkExperience
-            key={experience.id}
-            id={experience.id}
-            handleChange={handleWorkXpChange}
-          />
-        ))}
-
-        <HStack>
-          <Button colorScheme="purple" size="sm" onClick={handleAddWorkXp}>
-            <AddIcon />
-          </Button>
-          {workExperienceCount > 1 && (
-            <Button
-              colorScheme="purple"
-              size="sm"
-              variant="outline"
-              onClick={handleRemoveWorkXp}
-            >
-              <DeleteIcon />
-            </Button>
-          )}
-        </HStack>
-
-        <Heading
-          color="gray.500"
-          fontWeight="hairline"
-          size="lg"
-          textDecoration="underline"
-          textDecorationThickness="1px"
-          textAlign="center"
-          mb={3}
-        >
-          Education
-        </Heading>
-        <Divider mt={-4} />
-        {/* <Education /> */}
-        {/* <Projects /> */}
+              <HStack mt={-6} display="flex" justifyContent="center">
+                <Button
+                  colorScheme="purple"
+                  size="md"
+                  onClick={handleAddWorkXp}
+                >
+                  <AddIcon />
+                </Button>
+                {workExperienceCount > 1 && (
+                  <Button
+                    colorScheme="purple"
+                    size="md"
+                    variant="outline"
+                    onClick={handleRemoveWorkXp}
+                  >
+                    <DeleteIcon />
+                  </Button>
+                )}
+              </HStack>
+            </TabPanel>
+            <TabPanel>{/* <Education /> */}</TabPanel>
+            <TabPanel>{/* <Skills />} */}</TabPanel>
+            <TabPanel>{/* <Projects /> */}</TabPanel>
+          </TabPanels>
+        </Tabs>
       </Flex>
     );
   }
