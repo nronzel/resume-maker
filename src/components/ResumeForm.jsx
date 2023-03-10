@@ -43,7 +43,7 @@ class ResumeForm extends Component {
         >
           Work Experience
         </Heading>
-
+        <Divider mt={-4} />
         {experience.map((experience) => (
           <WorkExperience
             key={experience.id}
@@ -67,6 +67,19 @@ class ResumeForm extends Component {
             </Button>
           )}
         </HStack>
+
+        <Heading
+          color="gray.500"
+          fontWeight="hairline"
+          size="lg"
+          textDecoration="underline"
+          textDecorationThickness="1px"
+          textAlign="center"
+          mb={3}
+        >
+          Education
+        </Heading>
+        <Divider mt={-4} />
         {/* <Education /> */}
         {/* <Projects /> */}
       </Flex>

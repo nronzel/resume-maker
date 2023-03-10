@@ -1,11 +1,4 @@
-import {
-  FormControl,
-  Heading,
-  Input,
-  Textarea,
-  Flex,
-  FormHelperText,
-} from "@chakra-ui/react";
+import { Divider, Heading, Input, Textarea, Flex } from "@chakra-ui/react";
 import React, { Component } from "react";
 
 export class MainInfoSection extends Component {
@@ -24,6 +17,7 @@ export class MainInfoSection extends Component {
         >
           Profile
         </Heading>
+        <Divider mt={-1} />
         <Flex
           gap={3}
           alignItems="center"
