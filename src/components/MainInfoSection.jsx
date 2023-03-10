@@ -8,16 +8,6 @@ export class MainInfoSection extends Component {
   render() {
     return (
       <>
-        <Heading
-          color="gray.500"
-          fontWeight="hairline"
-          size="lg"
-          textDecoration="underline"
-          textDecorationThickness="1px"
-        >
-          Profile
-        </Heading>
-        <Divider mt={-1} />
         <Flex
           gap={3}
           alignItems="center"
