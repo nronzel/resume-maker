@@ -68,6 +68,12 @@ class MainSection extends Component {
     }));
   };
 
+  handleRemoveWorkExperience = () => {
+    const workExperience = [...this.state.workExperience];
+    workExperience.pop();
+    this.setState({ workExperience });
+  };
+
   render() {
     return (
       <Flex justifyContent="center" gap={5}>
@@ -75,6 +81,7 @@ class MainSection extends Component {
           handleChange={this.handleProfileInputChange}
           handleWorkXpChange={this.handleWorkXpChange}
           handleAddWorkXp={this.handleAddWorkExperience}
+          handleRemoveWorkXp={this.handleRemoveWorkExperience}
           experience={this.state.workExperience}
           workExperienceCount={this.state.workExperienceCount}
         />
