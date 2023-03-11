@@ -19,11 +19,13 @@ class EducationPreview extends Component {
             <Text>{school}</Text>
           </Flex>
           <Spacer />
-          <HStack>
-            <Text color="gray.500">{degree}</Text>
-            <Text fontWeight="thin">|</Text>
-            <Text as="i" fontWeight="thin">{`${start} - ${end}`}</Text>
-          </HStack>
+          <Flex alignItems="flex-start">
+            <HStack>
+              <Text color="gray.500">{degree}</Text>
+              <Text fontWeight="thin">|</Text>
+              <Text as="i" fontWeight="thin">{`${start} - ${end}`}</Text>
+            </HStack>
+          </Flex>
         </Flex>
       </Flex>
     );
