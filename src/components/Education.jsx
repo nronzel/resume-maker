@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import { Box, Input } from "@chakra-ui/react";
+import { Box, Input, Flex } from "@chakra-ui/react";
 
 class Education extends Component {
   constructor(props) {
     super(props);
   }
   render() {
+    const { id, handleChange } = this.props;
     return (
-      <Box>
+      <Flex direction="column" gap={4}>
         <Input
           defaultValue=""
           borderBottom="1px solid"
@@ -17,8 +18,55 @@ class Education extends Component {
           name="school"
           focusBorderColor="purple.400"
           placeholder="institution name"
+          onChange={(e) => handleChange(e, id)}
         ></Input>
-      </Box>
+        <Flex gap={5}>
+          <Input
+            defaultValue=""
+            borderBottom="1px solid"
+            p="3px"
+            variant="flushed"
+            colorScheme="purple"
+            name="start"
+            focusBorderColor="purple.400"
+            placeholder="start"
+            onChange={(e) => handleChange(e, id)}
+          ></Input>
+          <Input
+            defaultValue=""
+            borderBottom="1px solid"
+            p="3px"
+            variant="flushed"
+            colorScheme="purple"
+            name="end"
+            focusBorderColor="purple.400"
+            placeholder="end"
+            onChange={(e) => handleChange(e, id)}
+          ></Input>
+        </Flex>
+        <Input
+          defaultValue=""
+          borderBottom="1px solid"
+          p="3px"
+          variant="flushed"
+          colorScheme="purple"
+          name="fieldOfStudy"
+          focusBorderColor="purple.400"
+          placeholder="field of study"
+          onChange={(e) => handleChange(e, id)}
+        ></Input>
+        <Input
+          defaultValue=""
+          borderBottom="1px solid"
+          p="3px"
+          variant="flushed"
+          colorScheme="purple"
+          name="degree"
+          focusBorderColor="purple.400"
+          placeholder="degree"
+          onChange={(e) => handleChange(e, id)}
+        ></Input>
+      </Flex>
     );
   }
 }
