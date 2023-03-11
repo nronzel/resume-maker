@@ -37,6 +37,7 @@ class MainSection extends Component {
           start: "1996",
           end: "2000",
           fieldOfStudy: "Architecture",
+          isLast: true,
         },
       ],
       educationCount: 1,
