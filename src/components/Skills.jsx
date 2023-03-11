@@ -33,6 +33,8 @@ class Skills extends Component {
             <IconButton
               icon={<CloseIcon />}
               size="xs"
+              colorScheme="purple"
+              variant="outline"
               onClick={() => removeSkill(id)}
             ></IconButton>
           </InputRightElement>
