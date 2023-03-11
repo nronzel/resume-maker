@@ -29,6 +29,16 @@ class MainSection extends Component {
         },
       ],
       workExperienceCount: 1,
+      education: [
+        {
+          id: 0,
+          school: "New York University",
+          degree: "Bachelors",
+          start: "1996",
+          end: "2000",
+          fieldOfStudy: "Architecture",
+        },
+      ],
     };
   }
 
@@ -48,6 +58,15 @@ class MainSection extends Component {
       const workExperience = [...prevState.workExperience];
       workExperience[id] = { ...workExperience[id], [name]: value };
       return { workExperience };
+    });
+  };
+
+  handleEducationChange = (e, id) => {
+    const { name, value } = e.target;
+    this.setState((prevState) => {
+      const education = [...prevState.education];
+      education[id] = { ...education[id], [name]: value };
+      return { education };
     });
   };
 
@@ -87,10 +106,12 @@ class MainSection extends Component {
           handleRemoveWorkXp={this.handleRemoveWorkExperience}
           experience={this.state.workExperience}
           workExperienceCount={this.state.workExperienceCount}
+          handleEducationChange={this.handleEducationChange}
         />
         <ResumePreview
           profile={this.state.profile}
           workExperience={this.state.workExperience}
+          education={this.state.education}
         />
       </Flex>
     );
