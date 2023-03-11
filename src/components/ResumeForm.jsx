@@ -12,6 +12,7 @@ import WorkExperience from "./WorkExperience";
 import Education from "./Education";
 import ButtonStack from "./ButtonStack";
 import ProgressBar from "./ProgressBar";
+import Skills from "./Skills";
 
 class ResumeForm extends Component {
   constructor(props) {
@@ -62,6 +63,9 @@ class ResumeForm extends Component {
       educationCount,
       handleAddEducation,
       handleRemoveEducation,
+      handleSkillsChange,
+      skills,
+      handleRemoveSkill,
     } = this.props;
 
     const { progress } = this.state;
@@ -128,7 +132,16 @@ class ResumeForm extends Component {
               />
             </TabPanel>
             {/* Skills */}
-            <TabPanel></TabPanel>
+            <TabPanel>
+              {skills.map((skill) => (
+                <Skills
+                  key={skill.id}
+                  id={skill.id}
+                  handleChange={handleSkillsChange}
+                  removeSkill={handleRemoveSkill}
+                />
+              ))}
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </Flex>
