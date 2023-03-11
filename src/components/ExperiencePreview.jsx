@@ -11,7 +11,7 @@ class ExperiencePreview extends Component {
     return (
       <Flex w="100%" direction="column" key={id} id={id} mb={3}>
         <Box>
-          <Flex w="100%" mb={3} alignItems="center">
+          <Flex w="100%" mb={3} mt={2} alignItems="center">
             <Text fontSize="lg" fontWeight="semibold" color="blue.700">
               {jobTitle}
             </Text>
