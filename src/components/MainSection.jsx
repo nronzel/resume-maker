@@ -160,6 +160,12 @@ class MainSection extends Component {
       <Flex
         direction={{ base: "column", md: "column", lg: "column", xl: "row" }}
         justifyContent="center"
+        alignItems={{
+          base: "center",
+          md: "center",
+          lg: "center",
+          xl: "flex-start",
+        }}
         gap={5}
       >
         <ResumeForm
