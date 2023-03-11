@@ -5,8 +5,6 @@ import {
   Tab,
   TabPanels,
   TabPanel,
-  Progress,
-  Text,
 } from "@chakra-ui/react";
 import React, { Component } from "react";
 import MainInfoSection from "./MainInfoSection";
@@ -25,8 +23,23 @@ class ResumeForm extends Component {
     };
   }
 
-  handleIncreaseProgress = (increment = 20) => {
+  handleIncreaseProgress = (increment = 25) => {
     this.setState({ progress: this.state.progress + increment });
+  };
+
+  handleProgressBarChange = (index) => {
+    const previousIndex = this.state.activeIndex;
+    this.setState({ activeIndex: index });
+    if (index > previousIndex) {
+      this.handleIncreaseProgress();
+    } else if (index < previousIndex) {
+      this.setState({ progress: index * 25 });
+    }
+    if (index === 0) {
+      this.setState({ progress: 25 });
+    } else if (index === 3) {
+      this.setState({ progress: 100 });
+    }
   };
 
   render() {
@@ -59,15 +72,9 @@ class ResumeForm extends Component {
         <Tabs
           variant="enclosed"
           colorScheme="purple"
-          onChange={(index) => {
-            const previousIndex = this.state.activeIndex;
-            this.setState({ activeIndex: index });
-            if (index > previousIndex) {
-              this.handleIncreaseProgress();
-            } else if (index < previousIndex) {
-              this.setState({ progress: (index + 1) * 20 });
-            }
-          }}
+          onChange={this.handleProgressBarChange}
+          w="450px"
+          isFitted
         >
           <ProgressBar progress={progress} />
           <TabList>
@@ -75,7 +82,6 @@ class ResumeForm extends Component {
             <Tab>Experience</Tab>
             <Tab>Education</Tab>
             <Tab>Skills</Tab>
-            <Tab>Projects</Tab>
           </TabList>
           <TabPanels>
             {/* Main Profile Info */}
@@ -109,8 +115,6 @@ class ResumeForm extends Component {
               <ButtonStack educationCount={educationCount} />
             </TabPanel>
             {/* Skills */}
-            <TabPanel></TabPanel>
-            {/* Projects */}
             <TabPanel></TabPanel>
           </TabPanels>
         </Tabs>
