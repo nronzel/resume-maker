@@ -89,6 +89,32 @@ class MainSection extends Component {
     }));
   };
 
+  handleAddEducation = () => {
+    const { educationCount } = this.state;
+    const newEducation = {
+      id: educationCount,
+      school: "",
+      degree: "",
+      start: "",
+      end: "",
+      fieldOfStudy: "",
+      isLast: true,
+    };
+    this.setState((prevState) => ({
+      education: [...prevState.education, newEducation],
+      educationCount: prevState.educationCount + 1,
+    }));
+  };
+
+  handleRemoveEducation = () => {
+    const education = [...this.state.education];
+    education.pop();
+    this.setState((prevState) => ({
+      educationCount: prevState.educationCount - 1,
+      education,
+    }));
+  };
+
   handleRemoveWorkExperience = () => {
     const workExperience = [...this.state.workExperience];
     workExperience.pop();
@@ -111,6 +137,8 @@ class MainSection extends Component {
           education={this.state.education}
           handleEducationChange={this.handleEducationChange}
           educationCount={this.state.educationCount}
+          handleAddEducation={this.handleAddEducation}
+          handleRemoveEducation={this.handleRemoveEducation}
         />
         <ResumePreview
           profile={this.state.profile}
