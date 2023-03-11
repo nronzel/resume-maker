@@ -80,6 +80,15 @@ class MainSection extends Component {
     });
   };
 
+  handleSkillsChange = (e, id) => {
+    const { name, value } = e.target;
+    this.setState((prevState) => {
+      const skills = [...prevState.skills];
+      skills[id] = { ...skills[id], [name]: value };
+      return { skills };
+    });
+  };
+
   handleAddWorkExperience = () => {
     const { workExperienceCount } = this.state;
     const newExperience = {
@@ -132,6 +141,11 @@ class MainSection extends Component {
     }));
   };
 
+  handleRemoveSkill = (id) => {
+    const newSkills = this.state.skills.filter((skill) => skill.id !== id);
+    this.setState({ skills: newSkills });
+  };
+
   render() {
     return (
       <Flex justifyContent="center" gap={5}>
@@ -148,6 +162,8 @@ class MainSection extends Component {
           handleAddEducation={this.handleAddEducation}
           handleRemoveEducation={this.handleRemoveEducation}
           skills={this.state.skills}
+          handleSkillsChange={this.handleSkillsChange}
+          handleRemoveSkill={this.handleRemoveSkill}
         />
         <ResumePreview
           profile={this.state.profile}
