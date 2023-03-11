@@ -1,8 +1,5 @@
-import { AddIcon, DeleteIcon } from "@chakra-ui/icons";
 import {
   Flex,
-  Button,
-  HStack,
   Tabs,
   TabList,
   Tab,
