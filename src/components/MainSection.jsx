@@ -39,6 +39,7 @@ class MainSection extends Component {
           fieldOfStudy: "Architecture",
         },
       ],
+      educationCount: 1,
     };
   }
 
@@ -106,7 +107,9 @@ class MainSection extends Component {
           handleRemoveWorkXp={this.handleRemoveWorkExperience}
           experience={this.state.workExperience}
           workExperienceCount={this.state.workExperienceCount}
+          education={this.state.education}
           handleEducationChange={this.handleEducationChange}
+          educationCount={this.state.educationCount}
         />
         <ResumePreview
           profile={this.state.profile}
