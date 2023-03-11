@@ -13,6 +13,7 @@ import MainInfoSection from "./MainInfoSection";
 import WorkExperience from "./WorkExperience";
 import Education from "./Education";
 import ButtonStack from "./ButtonStack";
+import ProgressBar from "./ProgressBar";
 
 class ResumeForm extends Component {
   constructor(props) {
@@ -20,8 +21,13 @@ class ResumeForm extends Component {
 
     this.state = {
       progress: 20,
+      activeIndex: 0,
     };
   }
+
+  handleIncreaseProgress = (increment = 20) => {
+    this.setState({ progress: this.state.progress + increment });
+  };
 
   render() {
     const {
@@ -50,14 +56,20 @@ class ResumeForm extends Component {
         gap={4}
         h="fit-content"
       >
-        <Tabs variant="enclosed" colorScheme="purple" isLazy>
-          <Progress
-            value={progress}
-            size="sm"
-            colorScheme="purple"
-            mb={4}
-            borderRadius={3}
-          />
+        <Tabs
+          variant="enclosed"
+          colorScheme="purple"
+          onChange={(index) => {
+            const previousIndex = this.state.activeIndex;
+            this.setState({ activeIndex: index });
+            if (index > previousIndex) {
+              this.handleIncreaseProgress();
+            } else if (index < previousIndex) {
+              this.setState({ progress: (index + 1) * 20 });
+            }
+          }}
+        >
+          <ProgressBar progress={progress} />
           <TabList>
             <Tab>Profile</Tab>
             <Tab>Experience</Tab>
