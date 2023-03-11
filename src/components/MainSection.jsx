@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import React, { Component } from "react";
-import ResumeForm from "./ResumeForm";
-import ResumePreview from "./ResumePreview";
+import ResumeForm from "./ResumeForm.jsx";
+import ResumePreview from "./ResumePreview.jsx";
 class MainSection extends Component {
   constructor(props) {
     super(props);
