@@ -5,6 +5,8 @@ import {
   Tab,
   TabPanels,
   TabPanel,
+  Progress,
+  Text,
 } from "@chakra-ui/react";
 import React, { Component } from "react";
 import MainInfoSection from "./MainInfoSection";
@@ -15,6 +17,10 @@ import ButtonStack from "./ButtonStack";
 class ResumeForm extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      progress: 20,
+    };
   }
 
   render() {
@@ -30,6 +36,8 @@ class ResumeForm extends Component {
       educationCount,
     } = this.props;
 
+    const { progress } = this.state;
+
     return (
       <Flex
         direction="column"
@@ -43,6 +51,13 @@ class ResumeForm extends Component {
         h="fit-content"
       >
         <Tabs variant="enclosed" colorScheme="purple" isLazy>
+          <Progress
+            value={progress}
+            size="sm"
+            colorScheme="purple"
+            mb={4}
+            borderRadius={3}
+          />
           <TabList>
             <Tab>Profile</Tab>
             <Tab>Experience</Tab>
@@ -51,9 +66,11 @@ class ResumeForm extends Component {
             <Tab>Projects</Tab>
           </TabList>
           <TabPanels>
+            {/* Main Profile Info */}
             <TabPanel>
               <MainInfoSection handleChange={handleChange} />
             </TabPanel>
+            {/* Work Experience */}
             <TabPanel>
               {experience.map((experience) => (
                 <WorkExperience
@@ -68,6 +85,7 @@ class ResumeForm extends Component {
                 workExperienceCount={workExperienceCount}
               />
             </TabPanel>
+            {/* Education */}
             <TabPanel>
               {education.map((school) => (
                 <Education
@@ -78,8 +96,10 @@ class ResumeForm extends Component {
               ))}
               <ButtonStack educationCount={educationCount} />
             </TabPanel>
-            <TabPanel>{/* <Skills />} */}</TabPanel>
-            <TabPanel>{/* <Projects /> */}</TabPanel>
+            {/* Skills */}
+            <TabPanel></TabPanel>
+            {/* Projects */}
+            <TabPanel></TabPanel>
           </TabPanels>
         </Tabs>
       </Flex>
