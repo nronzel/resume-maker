@@ -23,23 +23,30 @@ class ResumeForm extends Component {
     };
   }
 
-  handleIncreaseProgress = (increment = 25) => {
-    this.setState({ progress: this.state.progress + increment });
-  };
-
   handleProgressBarChange = (index) => {
-    const previousIndex = this.state.activeIndex;
-    this.setState({ activeIndex: index });
-    if (index > previousIndex) {
-      this.handleIncreaseProgress();
-    } else if (index < previousIndex) {
-      this.setState({ progress: index * 25 });
+    const numTabs = 4;
+    const percentPerTab = 100 / numTabs;
+    let newProgress = this.state.progress;
+
+    if (index > this.state.activeIndex) {
+      // Calculate progress based on current and next active tabs
+      newProgress = index * percentPerTab + percentPerTab;
+    } else {
+      // Calculate progress based on current and previous active tabs
+      newProgress = index * percentPerTab + percentPerTab / 2;
     }
-    if (index === 0) {
-      this.setState({ progress: 25 });
-    } else if (index === 3) {
-      this.setState({ progress: 100 });
+
+    // Set progress to 100% when navigating to last tab, or 25 when at first tab
+    if (index === numTabs - 1) {
+      newProgress = 100;
+    } else if (index === 0) {
+      newProgress = percentPerTab;
     }
+
+    this.setState({
+      activeIndex: index,
+      progress: newProgress,
+    });
   };
 
   render() {
@@ -53,6 +60,8 @@ class ResumeForm extends Component {
       experience,
       education,
       educationCount,
+      handleAddEducation,
+      handleRemoveEducation,
     } = this.props;
 
     const { progress } = this.state;
@@ -100,7 +109,7 @@ class ResumeForm extends Component {
               <ButtonStack
                 handleAdd={handleAddWorkXp}
                 handleRemove={handleRemoveWorkXp}
-                workExperienceCount={workExperienceCount}
+                count={workExperienceCount}
               />
             </TabPanel>
             {/* Education */}
@@ -112,7 +121,11 @@ class ResumeForm extends Component {
                   handleChange={handleEducationChange}
                 />
               ))}
-              <ButtonStack educationCount={educationCount} />
+              <ButtonStack
+                count={educationCount}
+                handleAdd={handleAddEducation}
+                handleRemove={handleRemoveEducation}
+              />
             </TabPanel>
             {/* Skills */}
             <TabPanel></TabPanel>
