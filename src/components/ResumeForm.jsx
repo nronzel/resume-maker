@@ -5,6 +5,7 @@ import {
   Tab,
   TabPanels,
   TabPanel,
+  Button,
 } from "@chakra-ui/react";
 import React, { Component } from "react";
 import MainInfoSection from "./MainInfoSection";
@@ -13,6 +14,7 @@ import Education from "./Education";
 import ButtonStack from "./ButtonStack";
 import ProgressBar from "./ProgressBar";
 import Skills from "./Skills";
+import { AddIcon } from "@chakra-ui/icons";
 
 class ResumeForm extends Component {
   constructor(props) {
@@ -66,6 +68,7 @@ class ResumeForm extends Component {
       handleSkillsChange,
       skills,
       handleRemoveSkill,
+      handleAddSkill,
     } = this.props;
 
     const { progress } = this.state;
@@ -141,6 +144,12 @@ class ResumeForm extends Component {
                   removeSkill={handleRemoveSkill}
                 />
               ))}
+
+              <Flex justifyContent="center" pt={5}>
+                <Button colorScheme="purple" size="md" onClick={handleAddSkill}>
+                  <AddIcon />
+                </Button>
+              </Flex>
             </TabPanel>
           </TabPanels>
         </Tabs>
