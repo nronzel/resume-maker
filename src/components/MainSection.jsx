@@ -47,7 +47,6 @@ class MainSection extends Component {
         { id: 2, skill: "architecture" },
         { id: 3, skill: "test" },
         { id: 4, skill: "test2" },
-        { id: 5, skill: "test4" },
       ],
     };
   }
@@ -123,6 +122,16 @@ class MainSection extends Component {
     }));
   };
 
+  handleAddSkill = () => {
+    const newSkill = {
+      id: this.state.skills.length,
+      skill: "",
+    };
+    this.setState((prevState) => ({
+      skills: [...prevState.skills, newSkill],
+    }));
+  };
+
   handleRemoveEducation = () => {
     const education = [...this.state.education];
     education.pop();
@@ -164,6 +173,7 @@ class MainSection extends Component {
           skills={this.state.skills}
           handleSkillsChange={this.handleSkillsChange}
           handleRemoveSkill={this.handleRemoveSkill}
+          handleAddSkill={this.handleAddSkill}
         />
         <ResumePreview
           profile={this.state.profile}
