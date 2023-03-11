@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Box, Input, Flex } from "@chakra-ui/react";
+import { Input, Flex } from "@chakra-ui/react";
 
 class Education extends Component {
   constructor(props) {

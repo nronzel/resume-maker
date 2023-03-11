@@ -8,12 +8,12 @@ import {
   Button,
 } from "@chakra-ui/react";
 import React, { Component } from "react";
-import MainInfoSection from "./MainInfoSection";
-import WorkExperience from "./WorkExperience";
-import Education from "./Education";
-import ButtonStack from "./ButtonStack";
-import ProgressBar from "./ProgressBar";
-import Skills from "./Skills";
+import MainInfoSection from "./MainInfoSection.jsx";
+import WorkExperience from "./WorkExperience.jsx";
+import Education from "./Education.jsx";
+import ButtonStack from "./ButtonStack.jsx";
+import ProgressBar from "./ProgressBar.jsx";
+import Skills from "./Skills.jsx";
 import { AddIcon } from "@chakra-ui/icons";
 
 class ResumeForm extends Component {

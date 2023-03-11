@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Flex, Heading, Tag } from "@chakra-ui/react";
-import ProfileSectionPreview from "./ProfileSectionPreview";
-import ExperiencePreview from "./ExperiencePreview";
-import EducationPreview from "./EducationPreview";
-import Skills from "./Skills";
-import SkillsPreview from "./SkillsPreview";
+import { Flex, Heading } from "@chakra-ui/react";
+import ProfileSectionPreview from "./ProfileSectionPreview.jsx";
+import ExperiencePreview from "./ExperiencePreview.jsx";
+import EducationPreview from "./EducationPreview.jsx";
+import SkillsPreview from "./SkillsPreview.jsx";
 class ResumePreview extends Component {
   constructor(props) {
     super(props);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Flex, Heading, Spacer } from "@chakra-ui/react";
-import ThemeSwitcher from "./ThemeSwitcher";
+import ThemeSwitcher from "./ThemeSwitcher.jsx";
 
 export class Header extends Component {
   render() {
