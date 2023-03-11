@@ -30,6 +30,7 @@ class ResumeForm extends Component {
       workExperienceCount,
       experience,
       education,
+      educationCount,
     } = this.props;
 
     return (
@@ -42,6 +43,7 @@ class ResumeForm extends Component {
         w="595px"
         alignItems="center"
         gap={4}
+        h="fit-content"
       >
         <Tabs variant="enclosed" colorScheme="purple" isLazy>
           <TabList>
@@ -77,6 +79,7 @@ class ResumeForm extends Component {
                   handleChange={handleEducationChange}
                 />
               ))}
+              <ButtonStack educationCount={educationCount} />
             </TabPanel>
             <TabPanel>{/* <Skills />} */}</TabPanel>
             <TabPanel>{/* <Projects /> */}</TabPanel>
