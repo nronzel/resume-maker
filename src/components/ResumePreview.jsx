@@ -47,7 +47,7 @@ class ResumePreview extends Component {
 
         <Flex w="100%" pt={3} borderBottom="2px solid" borderColor="blue.700">
           <Heading size="md" fontWeight="medium">
-            Skills
+            SKILLS
           </Heading>
         </Flex>
 
