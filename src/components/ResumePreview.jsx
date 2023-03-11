@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex, Heading, Tag } from "@chakra-ui/react";
 import ProfileSectionPreview from "./ProfileSectionPreview";
 import ExperiencePreview from "./ExperiencePreview";
 import EducationPreview from "./EducationPreview";
+import Skills from "./Skills";
+import SkillsPreview from "./SkillsPreview";
 class ResumePreview extends Component {
   constructor(props) {
     super(props);
   }
   render() {
-    const { profile, workExperience, education } = this.props;
+    const { profile, workExperience, education, skills } = this.props;
     return (
       <Flex
         direction="column"
@@ -43,6 +45,18 @@ class ResumePreview extends Component {
         {education.map((school) => (
           <EducationPreview education={school} key={school.id} id={school.id} />
         ))}
+
+        <Flex w="100%" pt={3} borderBottom="2px solid" borderColor="blue.700">
+          <Heading size="md" fontWeight="medium">
+            Skills
+          </Heading>
+        </Flex>
+
+        <Flex gap={4} mt={3} wrap="wrap">
+          {skills.map((skill) => (
+            <SkillsPreview skill={skill.skill} key={skill.id} id={skill.id} />
+          ))}
+        </Flex>
       </Flex>
     );
   }
