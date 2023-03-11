@@ -41,6 +41,14 @@ class MainSection extends Component {
         },
       ],
       educationCount: 1,
+      skills: [
+        { id: 0, skill: "importing" },
+        { id: 1, skill: "exporting" },
+        { id: 2, skill: "architecture" },
+        { id: 3, skill: "test" },
+        { id: 4, skill: "test2" },
+        { id: 5, skill: "test4" },
+      ],
     };
   }
 
@@ -139,11 +147,13 @@ class MainSection extends Component {
           educationCount={this.state.educationCount}
           handleAddEducation={this.handleAddEducation}
           handleRemoveEducation={this.handleRemoveEducation}
+          skills={this.state.skills}
         />
         <ResumePreview
           profile={this.state.profile}
           workExperience={this.state.workExperience}
           education={this.state.education}
+          skills={this.state.skills}
         />
       </Flex>
     );
