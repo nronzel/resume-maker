@@ -157,7 +157,11 @@ class MainSection extends Component {
 
   render() {
     return (
-      <Flex justifyContent="center" gap={5}>
+      <Flex
+        direction={{ base: "column", md: "column", lg: "column", xl: "row" }}
+        justifyContent="center"
+        gap={5}
+      >
         <ResumeForm
           handleChange={this.handleProfileInputChange}
           handleWorkXpChange={this.handleWorkXpChange}
