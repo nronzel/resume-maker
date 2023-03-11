@@ -1,10 +1,8 @@
 import { AddIcon, DeleteIcon } from "@chakra-ui/icons";
 import {
   Flex,
-  Heading,
   Button,
   HStack,
-  Divider,
   Tabs,
   TabList,
   Tab,
@@ -14,6 +12,8 @@ import {
 import React, { Component } from "react";
 import MainInfoSection from "./MainInfoSection";
 import WorkExperience from "./WorkExperience";
+import Education from "./Education";
+import ButtonStack from "./ButtonStack";
 
 class ResumeForm extends Component {
   constructor(props) {
@@ -26,8 +26,10 @@ class ResumeForm extends Component {
       handleWorkXpChange,
       handleAddWorkXp,
       handleRemoveWorkXp,
+      handleEducationChange,
       workExperienceCount,
       experience,
+      education,
     } = this.props;
 
     return (
@@ -61,28 +63,21 @@ class ResumeForm extends Component {
                   handleChange={handleWorkXpChange}
                 />
               ))}
-
-              <HStack mt={-6} display="flex" justifyContent="center">
-                <Button
-                  colorScheme="purple"
-                  size="md"
-                  onClick={handleAddWorkXp}
-                >
-                  <AddIcon />
-                </Button>
-                {workExperienceCount > 1 && (
-                  <Button
-                    colorScheme="purple"
-                    size="md"
-                    variant="outline"
-                    onClick={handleRemoveWorkXp}
-                  >
-                    <DeleteIcon />
-                  </Button>
-                )}
-              </HStack>
+              <ButtonStack
+                handleAdd={handleAddWorkXp}
+                handleRemove={handleRemoveWorkXp}
+                workExperienceCount={workExperienceCount}
+              />
             </TabPanel>
-            <TabPanel>{/* <Education /> */}</TabPanel>
+            <TabPanel>
+              {education.map((school) => (
+                <Education
+                  key={school.id}
+                  id={school.id}
+                  handleChange={handleEducationChange}
+                />
+              ))}
+            </TabPanel>
             <TabPanel>{/* <Skills />} */}</TabPanel>
             <TabPanel>{/* <Projects /> */}</TabPanel>
           </TabPanels>
