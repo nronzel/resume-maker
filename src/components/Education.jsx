@@ -8,7 +8,7 @@ class Education extends Component {
   render() {
     const { id, handleChange } = this.props;
     return (
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={4} mb={10}>
         <Input
           defaultValue=""
           borderBottom="1px solid"
