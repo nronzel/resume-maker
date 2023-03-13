@@ -7,7 +7,7 @@ import {
   TabPanel,
   Button,
 } from "@chakra-ui/react";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import MainInfoSection from "./MainInfoSection.jsx";
 import WorkExperience from "./WorkExperience.jsx";
 import Education from "./Education.jsx";
@@ -16,22 +16,34 @@ import ProgressBar from "./ProgressBar.jsx";
 import Skills from "./Skills.jsx";
 import { AddIcon } from "@chakra-ui/icons";
 
-class ResumeForm extends Component {
-  constructor(props) {
-    super(props);
+const ResumeForm = (props) => {
+  const {
+    handleChange,
+    handleWorkXpChange,
+    handleAddWorkXp,
+    handleRemoveWorkXp,
+    handleEducationChange,
+    workExperienceCount,
+    experience,
+    education,
+    educationCount,
+    handleAddEducation,
+    handleRemoveEducation,
+    handleSkillsChange,
+    skills,
+    handleRemoveSkill,
+    handleAddSkill,
+  } = props;
 
-    this.state = {
-      progress: 20,
-      activeIndex: 0,
-    };
-  }
+  const [progress, setProgress] = useState(20);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  handleProgressBarChange = (index) => {
+  const handleProgressBarChange = (index) => {
     const numTabs = 4;
     const percentPerTab = 100 / numTabs;
-    let newProgress = this.state.progress;
+    let newProgress = progress;
 
-    if (index > this.state.activeIndex) {
+    if (index > activeIndex) {
       // Calculate progress based on current and next active tabs
       newProgress = index * percentPerTab + percentPerTab;
     } else {
@@ -46,116 +58,92 @@ class ResumeForm extends Component {
       newProgress = percentPerTab;
     }
 
-    this.setState({
-      activeIndex: index,
-      progress: newProgress,
-    });
+    setActiveIndex(index);
+    setProgress(newProgress);
   };
 
-  render() {
-    const {
-      handleChange,
-      handleWorkXpChange,
-      handleAddWorkXp,
-      handleRemoveWorkXp,
-      handleEducationChange,
-      workExperienceCount,
-      experience,
-      education,
-      educationCount,
-      handleAddEducation,
-      handleRemoveEducation,
-      handleSkillsChange,
-      skills,
-      handleRemoveSkill,
-      handleAddSkill,
-    } = this.props;
-
-    const { progress } = this.state;
-
-    return (
-      <Flex
-        direction="column"
-        border="1px solid"
-        borderColor="gray.700"
-        p={5}
-        borderRadius={5}
-        w="595px"
-        alignItems="center"
-        gap={4}
-        h="fit-content"
+  return (
+    <Flex
+      direction="column"
+      border="1px solid"
+      borderColor="gray.700"
+      p={5}
+      borderRadius={5}
+      w="595px"
+      alignItems="center"
+      gap={4}
+      h="fit-content"
+    >
+      <Tabs
+        variant="enclosed"
+        colorScheme="purple"
+        onChange={handleProgressBarChange}
+        w="450px"
+        isFitted
       >
-        <Tabs
-          variant="enclosed"
-          colorScheme="purple"
-          onChange={this.handleProgressBarChange}
-          w="450px"
-          isFitted
-        >
-          <ProgressBar progress={progress} />
-          <TabList>
-            <Tab>Profile</Tab>
-            <Tab>Experience</Tab>
-            <Tab>Education</Tab>
-            <Tab>Skills</Tab>
-          </TabList>
-          <TabPanels>
-            {/* Main Profile Info */}
-            <TabPanel>
-              <MainInfoSection handleChange={handleChange} />
-            </TabPanel>
-            {/* Work Experience */}
-            <TabPanel>
-              {experience.map((experience) => (
-                <WorkExperience
-                  key={experience.id}
-                  id={experience.id}
-                  handleChange={handleWorkXpChange}
-                />
-              ))}
-              <ButtonStack
-                handleAdd={handleAddWorkXp}
-                handleRemove={handleRemoveWorkXp}
-                count={workExperienceCount}
+        <ProgressBar progress={progress} />
+        <TabList>
+          <Tab>Profile</Tab>
+          <Tab>Experience</Tab>
+          <Tab>Education</Tab>
+          <Tab>Skills</Tab>
+        </TabList>
+        <TabPanels>
+          {/* Main Profile Info */}
+          <TabPanel>
+            <MainInfoSection handleChange={handleChange} />
+          </TabPanel>
+          {/* Work Experience */}
+          <TabPanel>
+            {experience.map((experience) => (
+              <WorkExperience
+                key={experience.id}
+                id={experience.id}
+                handleChange={handleWorkXpChange}
               />
-            </TabPanel>
-            {/* Education */}
-            <TabPanel>
-              {education.map((school) => (
-                <Education
-                  key={school.id}
-                  id={school.id}
-                  handleChange={handleEducationChange}
-                />
-              ))}
-              <ButtonStack
-                count={educationCount}
-                handleAdd={handleAddEducation}
-                handleRemove={handleRemoveEducation}
+            ))}
+            <ButtonStack
+              handleAdd={handleAddWorkXp}
+              handleRemove={handleRemoveWorkXp}
+              count={workExperienceCount}
+            />
+          </TabPanel>
+          {/* Education */}
+          <TabPanel>
+            {education.map((school) => (
+              <Education
+                key={school.id}
+                id={school.id}
+                handleChange={handleEducationChange}
               />
-            </TabPanel>
-            {/* Skills */}
-            <TabPanel>
-              {skills.map((skill) => (
-                <Skills
-                  key={skill.id}
-                  id={skill.id}
-                  handleChange={handleSkillsChange}
-                  removeSkill={handleRemoveSkill}
-                />
-              ))}
+            ))}
+            <ButtonStack
+              count={educationCount}
+              handleAdd={handleAddEducation}
+              handleRemove={handleRemoveEducation}
+            />
+          </TabPanel>
+          {/* Skills */}
+          <TabPanel>
+            {skills.map((skill) => (
+              <Skills
+                key={skill.id}
+                id={skill.id}
+                handleChange={handleSkillsChange}
+                removeSkill={handleRemoveSkill}
+              />
+            ))}
 
-              <Flex justifyContent="center" pt={5}>
-                <Button colorScheme="purple" size="md" onClick={handleAddSkill}>
-                  <AddIcon />
-                </Button>
-              </Flex>
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
-      </Flex>
-    );
-  }
-}
+            <Flex justifyContent="center" pt={5}>
+              <Button colorScheme="purple" size="md" onClick={handleAddSkill}>
+                <AddIcon />
+              </Button>
+            </Flex>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Flex>
+  );
+};
 
 export default ResumeForm;
