@@ -9,7 +9,7 @@ import {
 
 import React from "react";
 
-function Skills() {
+function Skills({ handleChange, removeSkill, id }) {
   return (
     <Flex justifyContent="center">
       <InputGroup w="50%">
