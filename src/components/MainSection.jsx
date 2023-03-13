@@ -1,95 +1,93 @@
+import { useState } from "react";
 import { Flex } from "@chakra-ui/react";
-import React, { Component } from "react";
 import ResumeForm from "./ResumeForm.jsx";
 import ResumePreview from "./ResumePreview.jsx";
-class MainSection extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      profile: {
-        firstName: "Art",
-        lastName: "Vandelay",
-        email: "avandalay@vandelayindustries.com",
-        phone: "555-555-5555",
-        link: "https://vandelayindustries.com",
-        title: "Import/Exporter",
-        description:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda maxime facilis ipsam corrupti sed quam unde architecto eum exercitationem debitis cum, temporibus vitae quia labore ad, obcaecati cupiditate a officiis eos nemo aliquid aliquam doloremque ea. Sit error nihil eum adipisci quam eos perspiciatis, ipsam, aliquam sapiente illum omnis dolore.",
-      },
-      workExperience: [
-        {
-          id: 0,
-          companyName: "Vandelay Industries",
-          start: "Jan 2000",
-          end: "Present",
-          jobTitle: "Import/Exporter",
-          jobDescription:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste porro dolorem quis. Corrupti, minima accusantium",
-          isLast: true,
-        },
-      ],
-      workExperienceCount: 1,
-      education: [
-        {
-          id: 0,
-          school: "New York University",
-          degree: "Bachelors",
-          start: "1996",
-          end: "2000",
-          fieldOfStudy: "Architecture",
-          isLast: true,
-        },
-      ],
-      educationCount: 1,
-      skills: [
-        { id: 0, skill: "importing" },
-        { id: 1, skill: "exporting" },
-        { id: 2, skill: "architecture" },
-        { id: 3, skill: "test" },
-        { id: 4, skill: "test2" },
-      ],
-    };
-  }
 
-  handleProfileInputChange = (e) => {
+const MainSection = () => {
+  const [profile, setProfile] = useState({
+    firstName: "Art",
+    lastName: "Vandelay",
+    email: "avandalay@vandelayindustries.com",
+    phone: "555-555-5555",
+    link: "https://vandelayindustries.com",
+    title: "Import/Exporter",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda maxime facilis ipsam corrupti sed quam unde architecto eum exercitationem debitis cum, temporibus vitae quia labore ad, obcaecati cupiditate a officiis eos nemo aliquid aliquam doloremque ea. Sit error nihil eum adipisci quam eos perspiciatis, ipsam, aliquam sapiente illum omnis dolore.",
+  });
+
+  const [experience, setExperience] = useState([
+    {
+      id: 0,
+      companyName: "Vandelay Industries",
+      start: "Jan 2000",
+      end: "Present",
+      jobTitle: "Import/Exporter",
+      jobDescription:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste porro dolorem quis. Corrupti, minima accusantium",
+      isLast: true,
+    },
+  ]);
+
+  const [workExperienceCount, setWorkExperienceCount] = useState(1);
+
+  const [education, setEducation] = useState([
+    {
+      id: 0,
+      school: "New York University",
+      degree: "Bachelors",
+      start: "1996",
+      end: "2000",
+      fieldOfStudy: "Architecture",
+      isLast: true,
+    },
+  ]);
+
+  const [educationCount, setEducationCount] = useState(1);
+
+  const [skills, setSkills] = useState([
+    { id: 0, skill: "importing" },
+    { id: 1, skill: "exporting" },
+    { id: 2, skill: "architecture" },
+    { id: 3, skill: "test" },
+    { id: 4, skill: "test2" },
+  ]);
+
+  const handleProfileInputChange = (e) => {
     const { name, value } = e.target;
-    this.setState((prevState) => ({
-      profile: {
-        ...prevState.profile,
-        [name]: value,
-      },
+    setProfile((prevState) => ({
+      ...prevState,
+      [name]: value,
     }));
   };
 
-  handleWorkXpChange = (e, id) => {
+  const handleWorkXpChange = (e, id) => {
     const { name, value } = e.target;
-    this.setState((prevState) => {
-      const workExperience = [...prevState.workExperience];
+    setExperience((prevState) => {
+      const workExperience = [...prevState];
       workExperience[id] = { ...workExperience[id], [name]: value };
-      return { workExperience };
+      return workExperience;
     });
   };
 
-  handleEducationChange = (e, id) => {
+  const handleEducationChange = (e, id) => {
     const { name, value } = e.target;
-    this.setState((prevState) => {
-      const education = [...prevState.education];
+    setEducation((prevState) => {
+      const education = [...prevState];
       education[id] = { ...education[id], [name]: value };
-      return { education };
+      return education;
     });
   };
 
-  handleSkillsChange = (e, id) => {
+  const handleSkillsChange = (e, id) => {
     const { name, value } = e.target;
-    this.setState((prevState) => {
-      const skills = [...prevState.skills];
+    setSkills((prevState) => {
+      const skills = [...prevState];
       skills[id] = { ...skills[id], [name]: value };
-      return { skills };
+      return skills;
     });
   };
 
-  handleAddWorkExperience = () => {
-    const { workExperienceCount } = this.state;
+  const handleAddWorkExperience = () => {
     const newExperience = {
       id: workExperienceCount,
       companyName: "",
@@ -99,14 +97,11 @@ class MainSection extends Component {
       jobDescription: "",
       isLast: true,
     };
-    this.setState((prevState) => ({
-      workExperience: [...prevState.workExperience, newExperience],
-      workExperienceCount: prevState.workExperienceCount + 1,
-    }));
+    setExperience((prevState) => [...prevState, newExperience]);
+    setWorkExperienceCount((prevCount) => prevCount + 1);
   };
 
-  handleAddEducation = () => {
-    const { educationCount } = this.state;
+  const handleAddEducation = () => {
     const newEducation = {
       id: educationCount,
       school: "",
@@ -116,84 +111,77 @@ class MainSection extends Component {
       fieldOfStudy: "",
       isLast: true,
     };
-    this.setState((prevState) => ({
-      education: [...prevState.education, newEducation],
-      educationCount: prevState.educationCount + 1,
-    }));
+    setEducation((prevState) => [...prevState, newEducation]);
+    setEducationCount((prevCount) => prevCount + 1);
   };
 
-  handleAddSkill = () => {
+  const handleAddSkill = () => {
     const newSkill = {
-      id: this.state.skills.length,
+      id: skills.length,
       skill: "",
     };
-    this.setState((prevState) => ({
-      skills: [...prevState.skills, newSkill],
-    }));
+    setSkills((prevState) => [...prevState, newSkill]);
   };
 
-  handleRemoveEducation = () => {
-    const education = [...this.state.education];
-    education.pop();
-    this.setState((prevState) => ({
-      educationCount: prevState.educationCount - 1,
-      education,
-    }));
+  const handleRemoveEducation = () => {
+    setEducation((prevState) => {
+      const education = [...prevState];
+      education.pop();
+      return education;
+    });
+    setEducationCount((prevCount) => prevCount - 1);
   };
 
-  handleRemoveWorkExperience = () => {
-    const workExperience = [...this.state.workExperience];
-    workExperience.pop();
-    this.setState((prevState) => ({
-      workExperienceCount: prevState.workExperienceCount - 1,
-      workExperience,
-    }));
+  const handleRemoveWorkExperience = () => {
+    setExperience((prevState) => {
+      const experience = [...prevState];
+      experience.pop();
+      return experience;
+    });
+    setWorkExperienceCount((prevCount) => prevCount - 1);
   };
 
-  handleRemoveSkill = (id) => {
-    const newSkills = this.state.skills.filter((skill) => skill.id !== id);
-    this.setState({ skills: newSkills });
+  const handleRemoveSkill = (id) => {
+    setSkills((prevState) => prevState.filter((skill) => skill.id !== id));
   };
 
-  render() {
-    return (
-      <Flex
-        direction={{ base: "column", md: "column", lg: "column", xl: "row" }}
-        justifyContent="center"
-        alignItems={{
-          base: "center",
-          md: "center",
-          lg: "center",
-          xl: "flex-start",
-        }}
-        gap={5}
-      >
-        <ResumeForm
-          handleChange={this.handleProfileInputChange}
-          handleWorkXpChange={this.handleWorkXpChange}
-          handleAddWorkXp={this.handleAddWorkExperience}
-          handleRemoveWorkXp={this.handleRemoveWorkExperience}
-          experience={this.state.workExperience}
-          workExperienceCount={this.state.workExperienceCount}
-          education={this.state.education}
-          handleEducationChange={this.handleEducationChange}
-          educationCount={this.state.educationCount}
-          handleAddEducation={this.handleAddEducation}
-          handleRemoveEducation={this.handleRemoveEducation}
-          skills={this.state.skills}
-          handleSkillsChange={this.handleSkillsChange}
-          handleRemoveSkill={this.handleRemoveSkill}
-          handleAddSkill={this.handleAddSkill}
-        />
-        <ResumePreview
-          profile={this.state.profile}
-          workExperience={this.state.workExperience}
-          education={this.state.education}
-          skills={this.state.skills}
-        />
-      </Flex>
-    );
-  }
-}
+  return (
+    <Flex
+      direction={{ base: "column", md: "column", lg: "column", xl: "row" }}
+      justifyContent="center"
+      alignItems={{
+        base: "center",
+        md: "center",
+        lg: "center",
+        xl: "flex-start",
+      }}
+      gap={5}
+    >
+      <ResumeForm
+        handleChange={handleProfileInputChange}
+        handleWorkXpChange={handleWorkXpChange}
+        handleAddWorkXp={handleAddWorkExperience}
+        handleRemoveWorkXp={handleRemoveWorkExperience}
+        experience={experience}
+        workExperienceCount={workExperienceCount}
+        education={education}
+        handleEducationChange={handleEducationChange}
+        educationCount={educationCount}
+        handleAddEducation={handleAddEducation}
+        handleRemoveEducation={handleRemoveEducation}
+        skills={skills}
+        handleSkillsChange={handleSkillsChange}
+        handleRemoveSkill={handleRemoveSkill}
+        handleAddSkill={handleAddSkill}
+      />
+      <ResumePreview
+        profile={profile}
+        workExperience={experience}
+        education={education}
+        skills={skills}
+      />
+    </Flex>
+  );
+};
 
 export default MainSection;
