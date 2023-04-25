@@ -1,4 +1,4 @@
-# Resume Maker ![language](https://img.shields.io/github/languages/top/nronzel/resume-maker) ![vite](https://img.shields.io/badge/Build-Vite-ffc51d) ![chakra](https://img.shields.io/badge/UI-Chakra%20UI-3cc7bd) ![react](https://img.shields.io/badge/Framework-React-149eca)
+# Resume Builder ![language](https://img.shields.io/github/languages/top/nronzel/resume-maker) ![vite](https://img.shields.io/badge/Build-Vite-ffc51d) ![chakra](https://img.shields.io/badge/UI-Chakra%20UI-3cc7bd) ![react](https://img.shields.io/badge/Framework-React-149eca)
 
 ## Description
 
@@ -43,3 +43,8 @@ npm run preview // run preview of the production build. default: localhost:4173
 [LIVE PREVIEW](https://nronzel.github.io/resume-maker/)
 
 ![screenshot](./public/screenshot.png)
+
+## Future Improvements
+- Add ability to export documents
+- templates for different styled resumes
+- export a json with all data so you can re-upload and modify your resume at any time
